@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "git-story"
+version = "1.0.0"
+description = "Read any git history as an engineering narrative: hotspots, bus factor, co-change coupling, onboarding guide and a generated HTML timeline."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "kele" }]
+keywords = ["git", "analytics", "visualization", "cli", "engineering-metrics"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Version Control :: Git",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+git-story = "gitstory.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/kele-tao/git-story"
+Issues = "https://github.com/kele-tao/git-story/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+# examples/demo_repo is a generated fixture and benchmarks/.work a scratch repo.
+extend-exclude = ["examples/demo_repo", "benchmarks/.work"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "C4", "RET", "PTH"]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
+# html.py embeds CSS and SVG markup in a template literal; wrapping those lines
+# would make the generated page harder to read than the source.
+"src/gitstory/html.py" = ["E501"]

@@ -1,0 +1,49 @@
+name: Bug report
+description: Something produced a wrong number, crashed, or rejected valid input
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Numbers matter here: please include the exact command and the output.
+  - type: input
+    id: version
+    attributes:
+      label: git-story version
+      description: Output of `git-story --version`
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python and git versions
+      description: Output of `python --version` and `git --version`
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Repository shape
+      description: Approximate commit count, author count, and whether it is a monorepo
+    validations:
+      required: false
+  - type: textarea
+    id: command
+    attributes:
+      label: Command
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Tracebacks, screenshots of the HTML page, etc.
+    validations:
+      required: false

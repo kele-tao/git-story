@@ -1,0 +1,32 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - run: pytest -q
+      - run: python -m gitstory --help
+      - name: CLI smoke test on this repository
+        run: |
+          python -m gitstory summary --color never
+          python -m gitstory bus-factor --color never
+          python -m gitstory hotspots --color never
+          python -m gitstory story --format html --out /tmp/story.html
+          test -s /tmp/story.html
+      - name: Rebuild the demo repository and analyse it
+        run: |
+          python benchmarks/make_demo_repo.py
+          python -m gitstory chronicle --color never examples/demo_repo

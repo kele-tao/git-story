@@ -1,0 +1,28 @@
+name: Feature request
+description: Suggest a new analysis or output format
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        git-story stays pure-stdlib by default. Explain which decision the new
+        analysis would change and how it could be falsified.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The engineering decision this would inform
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed analysis
+      description: Inputs, output, and the formula or heuristic you have in mind
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
