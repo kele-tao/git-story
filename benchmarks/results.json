@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-11-23T08:45:14Z",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "rows": [
+    {
+      "scan": 0.6628,
+      "read_head_files": 8.4949,
+      "analyses": 0.0495,
+      "import_edges": 0.0,
+      "summary_text": 0.0067,
+      "chronicle_text": 0.0078,
+      "render_html": 0.0855,
+      "html_kb": 20.7,
+      "text_bytes": 1258.0,
+      "commits": 200.0,
+      "authors": 6.0,
+      "files_at_head": 60.0
+    },
+    {
+      "scan": 0.5524,
+      "read_head_files": 4.8469,
+      "analyses": 0.2563,
+      "import_edges": 0.0,
+      "summary_text": 0.0254,
+      "chronicle_text": 0.0255,
+      "render_html": 0.2453,
+      "html_kb": 23.6,
+      "text_bytes": 1641.0,
+      "commits": 1000.0,
+      "authors": 6.0,
+      "files_at_head": 60.0
+    },
+    {
+      "scan": 0.586,
+      "read_head_files": 5.0314,
+      "analyses": 0.8149,
+      "import_edges": 0.0,
+      "summary_text": 0.0819,
+      "chronicle_text": 0.0694,
+      "render_html": 0.5402,
+      "html_kb": 32.2,
+      "text_bytes": 2764.0,
+      "commits": 3000.0,
+      "authors": 6.0,
+      "files_at_head": 60.0
+    }
+  ]
+}
