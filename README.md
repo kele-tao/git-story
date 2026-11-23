@@ -119,23 +119,17 @@ plain-text for readability. Run it to see the actual output.)
 
 ### 2. The narrative chronicle
 
-```
-$ git-story chronicle examples/demo_repo --since 1y --per-month 2
-demo_repo  engineering history
-92 commits | 6 authors | 4 tags | 2025-11-24 to 2026-03-31
+![git-story chronicle in a real terminal](docs/terminal.png)
 
-Mar 2026  27 commits  ##################·  6 authors  +141/-6
-           Feature  14  Build     4  Docs      4  Fix       4  Release   1
-          4d422ee  Fix      fix: scheduler returned stale count on pass 9
-          448d9e3  Feature  feat: hardening pass 50
-          ... 25 more
+That is a real terminal render of:
 
-Feb 2026  22 commits  ##############····  5 authors  +81/-14
-           Refactor 12  Feature   7  Docs      1  Fix       1  Release   1
+```bash
+git-story chronicle examples/demo_repo --per-month 2
 ```
 
-`--since` accepts `1y`, `6m`, `2w`, `30d` or an ISO date. `--until` is the
-upper bound.
+`--since` accepts `1y`, `6m`, `2w`, `30d` or an ISO date; `--until` is the
+upper bound. Every month gets a commit bar, the theme mix and the first
+`--per-month` commits, so a year of history fits on one screen.
 
 ### 3. The generated story page
 
