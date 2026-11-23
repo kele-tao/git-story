@@ -22,3 +22,8 @@ Thumbs.db
 
 # Benchmark scratch repositories
 benchmarks/.work/
+
+# The demo repository is generated, not vendored: run
+#   python benchmarks/make_demo_repo.py
+# to recreate it before running the examples in the README.
+examples/demo_repo/
