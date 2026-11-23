@@ -191,6 +191,33 @@ Exit codes are documented and stable: **0** success, **1** a `--fail-on` quality
 gate tripped, **2** usage error (bad flag, not a repository, unparsable
 `--since`). User errors never print a traceback.
 
+## Self-demo: git-story on git-story
+
+The tool is run on its own repository in CI, and here is what it says about
+itself (run `git-story bus-factor` in a fresh clone to reproduce):
+
+```
+$ git-story bus-factor
+git-story  engineering history
+16 commits | 1 authors | 0 tags | 2026-10-16 to 2026-11-13
+
+Bus factor by directory  (fewest people owning 50% of the commits)
+
++------------+---------+---------+-----+------------+-------+----------+
+| directory  | commits | authors | bus | top author | share | risk     |
++------------+---------+---------+-----+------------+-------+----------+
+| src        |      10 |       1 |   1 | kele       |  100% | critical |
+| benchmarks |       3 |       1 |   1 | kele       |  100% | low      |
+| docs       |       2 |       1 |   1 | kele       |  100% | low      |
++------------+---------+---------+-----+------------+-------+----------+
+
+!! 1 directory would be orphaned if one person left.
+```
+
+A one-person project has a bus factor of one. The tool does not flatter its own
+repository, and that is exactly the point: the number is computed from
+`git log`, not from a badge.
+
 ## How it works
 
 ```mermaid
