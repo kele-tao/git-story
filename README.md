@@ -1,5 +1,7 @@
 # git-story
 
+**English** | [简体中文](README.zh-CN.md)
+
 **Turn a git history into an engineering narrative: what actually happened, who owns it, and where the risk is hiding.**
 
 ![python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776ab)
