@@ -5,13 +5,17 @@
 A real git repository with 130+ commits, six authors, four tags, a merge
 workflow, a dedicated refactor month and one obvious hotspot file.
 
-It is **generated**, not copied, so anyone can reproduce every number in the
-README:
+It is **generated**, not copied or vendored, so anyone can reproduce every
+number in the README:
 
 ```bash
 python benchmarks/make_demo_repo.py
 python -m gitstory summary examples/demo_repo
 ```
+
+The directory is listed in `.gitignore` on purpose: a nested git repository
+inside the published repository would be committed as a broken submodule
+pointer, and the generator is one command away.
 
 The generator (`benchmarks/make_demo_repo.py`) is seeded (seed 20240607) and
 anchors its commit dates to the day you run it, so the *shape* of the history is

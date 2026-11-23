@@ -68,6 +68,17 @@ dependencies; `pip install -e ".[dev]"` adds pytest and ruff for development.
 
 ## Usage
 
+The examples below use `examples/demo_repo`, a demo repository that is
+**generated, not vendored** (a git repository inside a git repository is a
+trap). Build it once:
+
+```bash
+python benchmarks/make_demo_repo.py     # 137 commits, 6 authors, 4 tags
+```
+
+Every command also works on your own repository: drop the path argument and
+git-story analyses the current directory.
+
 ### 1. The one-screen overview
 
 ```
